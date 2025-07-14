@@ -1,0 +1,12 @@
+# flutter / dart 관련 공통 무시 항목
+**/build/
+**/.dart_tool/
+**/.packages
+**/.idea/
+**/.vscode/
+
+# 일반적으로 무시하는 항목들
+.DS_Store
+*.log
+*.lock
+*.iml
