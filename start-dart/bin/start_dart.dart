@@ -45,4 +45,41 @@ void main(List<String> arguments) {
   const API = '컴파일할 때 알고 있는 값';
   // 예를 들어 사용자가 입력하는 값 < 이런 건 final 이 되겠지?
   // const는 앱을 빌드할 때 이미 우리가 알고 있는 값 like const max_allowed_price;
+
+  // 특이한 점이 var 을 가능한 한 많이 쓰도록 권장된대
+  // 타입을 사용하는 방식은 class의 property를 쓸 때 권장
+
+  // num?
+  // num은 int가 될 수도 있고 double이 될 수도 있음
+
+  // List 라는 형태
+  List<int> numbers = [1, 2, 3, 4];
+  numbers.add(33); // 여기는 number 만을 추가할 수 있는 것임
+  print(numbers.first);
+  print(numbers.last);
+
+  // collection if
+  var giveMeFive = true;
+  var nums = [1, 2, 3, 4, if (giveMeFive) 5]; // 댑악 정말 편리한 기능
+  print(nums);
+
+  // String interpolation
+  var myName = "dasom";
+  var myAge = 30;
+  var greeting = 'Hi, this is $myName! Say hello. She is ${myAge - 10}.';
+  // 그냥 변수를 사용하고 싶은 거면 중괄호 ㄴㄴ
+  // 무언가를 계산하고 싶다면 계산할 내용을 중괄호에 붙여주면 됨
+  // '', "" 상관 없이 쓸 수 있다!
+  print(greeting);
+
+  // collection for
+  var oldFriends = ['dasom', 'heeri'];
+  var newFriends = [
+    'hongbi',
+    'ziso',
+    "sun-a",
+    for (var friend in oldFriends)
+      "❤️ $friend", // oldFriends에 newFriends를 넣고 싶다면?
+  ];
+  print(newFriends);
 }
