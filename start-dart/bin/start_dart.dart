@@ -82,4 +82,34 @@ void main(List<String> arguments) {
       "❤️ $friend", // oldFriends에 newFriends를 넣고 싶다면?
   ];
   print(newFriends);
+
+  // map
+  var player = {'name': 'nico', 'xp': 19.99, 'superpower': false};
+  Map<int, bool> player2 = {1: true, 2: false, 3: true};
+  // 이런 형태도 가능하다
+  Map<List<int>, bool> player3 = {
+    [1, 2, 3, 5]: true,
+  };
+  List<Map<String, Object>> players = [
+    {
+      'name': 'dasom',
+      'xp': 199999, // value가 Object 형태면 값이 아무거나 올 수 있다.
+    },
+  ];
+
+  // Sets
+  // set 안에 들어 있는 모든 요소는 유니크하다.
+  Set<int> number4 = {1, 2, 3, 4};
+  number4.add(1);
+  number4.add(1);
+  number4.add(1);
+  number4.add(1);
+  print(
+    number4,
+  ); // 결과값 {1, 2, 3, 4} 1을 많이 추가했지만 값이 하나만 나온다. set = 시퀀스 있음 그래서 모든 요소가 유니크해야 한다. 정말 유용한 기능이겠다.
+
+  // function
+  start_dart.sayHello("dasom");
+  print(start_dart.sayHelloToString("dasom"));
+  print(start_dart.isTheSameWithSayHelloToString("dasom"));
 }
