@@ -112,4 +112,15 @@ void main(List<String> arguments) {
   start_dart.sayHello("dasom");
   print(start_dart.sayHelloToString("dasom"));
   print(start_dart.isTheSameWithSayHelloToString("dasom"));
+
+  // named parameters
+  print(start_dart.sayHello2("dasom", 31, "Republic of korea"));
+  // 인자를 보내주는 건 좋지만 인자들이 뭘 뜻하는지를 전혀 알지 못함.
+  // 이럴 때 쓰는 게? named parameters
+  // 인자의 순서를 기억하는 게 아니라
+  print(
+    start_dart.sayHello3(age: 20, country: "Republic of korea", name: "lala"),
+  );
+  // 이렇게 순서에 관계없이 이름을 지정해서 인자로 보내줄 수 있다.
+  print(start_dart.sayHello4(name: "me", age: 33, country: "korea"));
 }
