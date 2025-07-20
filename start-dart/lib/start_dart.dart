@@ -46,3 +46,10 @@ String sayHello3({
 String sayHello4({required String name, required age, required country}) {
   return "Hello $name, you are $age, and you came from $country";
 }
+
+// 3. 세 번째 해결책: optional positional parameter
+// 근데 이미 디폴트 값을 주는 게 있는데 왜 굳이 저렇게 쓰지?
+// 저건 함수를 실행할 때 print(start_dart.sayHello3(age: 20, country: "Republic of korea")); 이런 식으로 꼭 키값과 함께 줘야 한다.
+// 이 방식은 순서만 지키고 인자값만 보내줘도 되는 데에서 차이가 있다.
+String sayHello5(String name, int age, [String? country = 'korea']) =>
+    'Hello, this is $name, she is $age years old from $country';

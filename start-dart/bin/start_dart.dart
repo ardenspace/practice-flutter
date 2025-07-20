@@ -1,4 +1,5 @@
 import 'package:start_dart/start_dart.dart' as start_dart;
+import 'package:start_dart/functions.dart' as functions;
 
 void main(List<String> arguments) {
   // dart 는 무조건 main을 실행한다. index or app 이랑 같은 거임
@@ -118,9 +119,21 @@ void main(List<String> arguments) {
   // 인자를 보내주는 건 좋지만 인자들이 뭘 뜻하는지를 전혀 알지 못함.
   // 이럴 때 쓰는 게? named parameters
   // 인자의 순서를 기억하는 게 아니라
-  print(
-    start_dart.sayHello3(age: 20, country: "Republic of korea", name: "lala"),
-  );
+  print(start_dart.sayHello3(age: 20, country: "Republic of korea - -  -"));
   // 이렇게 순서에 관계없이 이름을 지정해서 인자로 보내줄 수 있다.
   print(start_dart.sayHello4(name: "me", age: 33, country: "korea"));
+  // [type? ]
+  print(start_dart.sayHello5("dasom", 30));
+
+  // < - - import functions
+  print(functions.capitalizeName("dasom"));
+  print(functions.capitalizeNameNull(null));
+  print(functions.capitalizeNameNullShorter(null));
+
+  // ?? 의 쓰임
+  String? yourName;
+  yourName ??= "SOMDA";
+
+  // typedef
+  print(functions.reverseListOfNumbers([1, 2, 3]));
 }
