@@ -136,4 +136,7 @@ void main(List<String> arguments) {
 
   // typedef
   print(functions.reverseListOfNumbers([1, 2, 3]));
+
+  // *** start to study class ***
+  functions.main2();
 }
