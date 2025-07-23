@@ -126,6 +126,26 @@ class BigPlayer {
   }
 }
 
+// 개발자들의 typo 실수를 줄여주는 기능도 있다!
+// Enums!
+// 컬러 정의할 때에도 많이 쓴다.
+// class 6
+enum Team { red, blue } // 심지어 "" 처리를 안 해도 됨
+
+enum XPLevel { beginner, medium, pro }
+
+class EnumsPlayer {
+  String name;
+  XPLevel xp;
+  Team team; // 이렇게 정의해주면 됨 ... 짱이다
+
+  EnumsPlayer({required this.name, required this.xp, required this.team});
+
+  void sayHello() {
+    print("Hi, my name is $name");
+  }
+}
+
 void main2() {
   var player = ShorterPlayer("somda", 15000);
   print(player.xp);
@@ -151,4 +171,12 @@ void main2() {
     var player = BigPlayer.fromJson(playerJson);
     player.sayHello();
   });
+
+  // 클래스 6
+  // 미리 정의해놨으니 아주 간편하게 고를 수 있고 실수도 확실하게 줄일 수 있다.
+  var enumPlayer = EnumsPlayer(
+    name: "somda",
+    xp: XPLevel.beginner,
+    team: Team.blue,
+  );
 }

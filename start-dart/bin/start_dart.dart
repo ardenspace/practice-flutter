@@ -1,5 +1,6 @@
 import 'package:start_dart/start_dart.dart' as start_dart;
 import 'package:start_dart/functions.dart' as functions;
+import 'package:start_dart/abstract.dart' as abstracts;
 
 void main(List<String> arguments) {
   // dart 는 무조건 main을 실행한다. index or app 이랑 같은 거임
@@ -139,4 +140,7 @@ void main(List<String> arguments) {
 
   // *** start to study class ***
   functions.main2();
+
+  // *** start to study abstract classes ***
+  abstracts.main3();
 }
