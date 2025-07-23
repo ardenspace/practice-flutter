@@ -47,9 +47,32 @@ class TeamPlayer extends Person {
   }
 }
 
+// Mixins
+// 생성자가 없는 클래스
+mixin Strong {
+  final double strenthLevel = 1500.99;
+  // 생성자가 없음 그게 mixin의 역할
+}
+
+mixin QuickRunner {
+  void runQuick() {
+    print("ruuuuuuuuuun!");
+  }
+}
+
+class RunPlayer with Strong, QuickRunner {
+  final Team team;
+  final String name;
+
+  RunPlayer({required this.team, required this.name});
+}
+
 void main3() {
   Player(name: "somda", xp: 2000, team: "pink");
 
   var teamPlayer = TeamPlayer(team: Team.blue, name: "somda");
   teamPlayer.sayHello();
+
+  var runner = RunPlayer(team: Team.blue, name: "lilly");
+  runner.runQuick();
 }
