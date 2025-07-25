@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
+class Player {
+  String? name;
+
+  Player({required this.name});
+}
+
 void main() {
+  var somda = Player(name: "somda");
   runApp(App());
 }
 
@@ -13,7 +20,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       // 테마를 꼭 설정해줘야 함. material 스타일로 할 건지, ios 스타일인 cupertino 스타일로 할 건지 .. 커스터마이징 수월하다며? ㅇㅇ 그렇긴 함 근데 기본적으로 베이직이 되는 뼈대는 프로젝트 시작점에서 골라줘야 함. 물론 구글에서 만든 material style이 보기 좋겠지? 마음에 안 든다고 해도 어쩔 수 없고 또 뭔가를 골랐다고 해서 그 디자인이 통용되는 것도 아님 커스터마이징 아주 자유로움
       home: Scaffold(
-        appBar: AppBar(title: Text("Hello, flutter")),
+        appBar: AppBar(title: Text("Hello, flutter"), centerTitle: true),
         body: Center(child: Text("Hello, this is my world!")),
       ),
     );
