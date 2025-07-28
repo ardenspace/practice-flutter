@@ -8,31 +8,34 @@ class Player {
 
 void main() {
   var somda = Player(name: "somda");
-  runApp(App());
+  runApp(const App());
 }
 
 // 플러터는 위젯을 쌓아 올려 만든다.
 // 위젯을 합치는 방식으로 앱을 구성하는데 모든 위젯은 build 메서드를 구현해야 한다.
 // 이 위젯을 사용하려면 이 메서드를 구현해라 .. 라는 일종의 걔약인 셈!
 class App extends StatelessWidget {
+  const App({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       // 테마를 꼭 설정해줘야 함. material 스타일로 할 건지, ios 스타일인 cupertino 스타일로 할 건지 .. 커스터마이징 수월하다며? ㅇㅇ 그렇긴 함 근데 기본적으로 베이직이 되는 뼈대는 프로젝트 시작점에서 골라줘야 함. 물론 구글에서 만든 material style이 보기 좋겠지? 마음에 안 든다고 해도 어쩔 수 없고 또 뭔가를 골랐다고 해서 그 디자인이 통용되는 것도 아님 커스터마이징 아주 자유로움
       home: Scaffold(
-        backgroundColor: Color(0xFF181818),
+        backgroundColor: const Color(0xFF181818),
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 80),
+              const SizedBox(height: 80),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text(
+                      const Text(
                         "Hey, Selena",
                         style: TextStyle(
                           color: Colors.white,
@@ -48,6 +51,41 @@ class App extends StatelessWidget {
                         ),
                       ),
                     ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 80),
+              Text(
+                'Total Balance',
+                style: TextStyle(
+                  fontSize: 22,
+                  color: Colors.white.withOpacity(0.8),
+                ),
+              ),
+              const SizedBox(height: 5),
+              const Text(
+                '\$5 194 482',
+                style: TextStyle(
+                  fontSize: 48,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(height: 30),
+              Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.circular(45),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 20,
+                        horizontal: 50,
+                      ),
+                      child: Text("Transfer", style: TextStyle(fontSize: 22)),
+                    ),
                   ),
                 ],
               ),
