@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toonflix/widgets/Button.dart';
 
 class Player {
   String? name;
@@ -46,7 +47,7 @@ class App extends StatelessWidget {
                       Text(
                         "Welcome back",
                         style: TextStyle(
-                          color: Colors.white.withOpacity(0.7),
+                          color: Colors.white.withValues(alpha: 0.7),
                           fontSize: 18,
                         ),
                       ),
@@ -59,7 +60,7 @@ class App extends StatelessWidget {
                 'Total Balance',
                 style: TextStyle(
                   fontSize: 22,
-                  color: Colors.white.withOpacity(0.8),
+                  color: Colors.white.withValues(alpha: 0.8),
                 ),
               ),
               const SizedBox(height: 5),
@@ -74,18 +75,17 @@ class App extends StatelessWidget {
               const SizedBox(height: 30),
               Row(
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(45),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 20,
-                        horizontal: 50,
-                      ),
-                      child: Text("Transfer", style: TextStyle(fontSize: 22)),
-                    ),
+                  Button(
+                    buttonText: "Transfer",
+                    bgColor: Colors.amber,
+                    textColor: Colors.black.withValues(alpha: 0.7),
+                    marginLeft: 0.0,
+                  ),
+                  const Button(
+                    buttonText: "Request",
+                    bgColor: Color(0xFF1F2123),
+                    textColor: Colors.white,
+                    marginLeft: 20.0,
                   ),
                 ],
               ),
