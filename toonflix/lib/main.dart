@@ -23,31 +23,39 @@ class _AppState extends State<App> {
   // state의 개념이 있음 state 없이 그냥 함수를 때려 넣으면 아무것도 안 바뀜
   // 왜? 플러터가 지금 이게 바뀌고 있는 건지 아닌지 감지를 못함 여기서 필요한 게?
   // setState임 ... 짱이지? 이걸 써줘야 플러터가 새로운 데이터가 있다는 걸 알게 되는 거임!
-  void onClicked() {
-    setState(() {
-      numbers.add(numbers.length);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: const Color(0xFFF4FDDB),
+      theme: ThemeData(
+        // 설정 한 번으로 모든 테마를 유지할 수 있다.
+        textTheme: const TextTheme(titleLarge: TextStyle(color: Colors.red)),
+      ),
+      home: const Scaffold(
+        backgroundColor: Color(0xFFF4FDDB),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text("Click Count", style: TextStyle(fontSize: 30)),
-              for (var n in numbers) Text('$n'),
-              IconButton(
-                iconSize: 40,
-                onPressed: onClicked,
-                icon: const Icon(Icons.add_box_rounded),
-              ),
-            ],
+            children: [MyLargeTitle()],
+            // 자 그럼 이 칠드런이 저 제일 대빵 요소에 닿아야만 테마가 작동된다.
+            // 이걸 도와주는 게 context임!
           ),
         ),
+      ),
+    );
+  }
+}
+
+class MyLargeTitle extends StatelessWidget {
+  const MyLargeTitle({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      "My Large Title",
+      style: TextStyle(
+        fontSize: 30,
+        color: Theme.of(context).textTheme.titleLarge?.color,
       ),
     );
   }
