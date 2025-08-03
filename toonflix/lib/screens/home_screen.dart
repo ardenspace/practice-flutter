@@ -58,19 +58,49 @@ class HomeScreen extends StatelessWidget {
             // ListView : 정말 너무 좋은 기능
             // 리스트를 띄우는 데 최적화된 widget
             // itemBuilder 기능 덕분에 화면에 보이는 부분만 데이터가 그때 그때 렌더링 됨 ... 혁신 ...
-            return ListView.separated(
-              scrollDirection: Axis.horizontal,
-              itemCount: futureRes.data!.length,
-              itemBuilder: (context, index) {
-                var webtoon = futureRes.data![index];
-                return Text(webtoon.title);
-              },
-              separatorBuilder: (context, index) => const SizedBox(width: 20),
+            return Column(
+              children: [
+                const SizedBox(height: 50),
+                Expanded(child: makeList(futureRes)),
+              ],
             );
           }
           return const Center(child: CircularProgressIndicator());
         },
       ),
+    );
+  }
+
+  ListView makeList(AsyncSnapshot<List<WebtoonModel>> futureRes) {
+    return ListView.separated(
+      scrollDirection: Axis.horizontal,
+      itemCount: futureRes.data!.length,
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+      itemBuilder: (context, index) {
+        var webtoon = futureRes.data![index];
+        return Column(
+          children: [
+            Container(
+              width: 250,
+              clipBehavior: Clip.hardEdge,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 15,
+                    offset: const Offset(10, 10),
+                    color: Colors.black.withValues(alpha: 0.3),
+                  ),
+                ],
+              ),
+              child: Image.network(webtoon.thumb),
+            ),
+            const SizedBox(height: 10),
+            Text(webtoon.title, style: const TextStyle(fontSize: 18)),
+          ],
+        );
+      },
+      separatorBuilder: (context, index) => const SizedBox(width: 35),
     );
   }
 }
