@@ -20,7 +20,7 @@ class DetailScreen extends StatelessWidget {
           const SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [ImageCard(thumb: thumb)],
+            children: [ImageCard(thumb: thumb, id: id)],
           ),
         ],
       ),

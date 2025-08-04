@@ -55,7 +55,7 @@ class Webtoon extends StatelessWidget {
       },
       child: Column(
         children: [
-          ImageCard(thumb: thumb),
+          ImageCard(thumb: thumb, id: id),
           const SizedBox(height: 10),
           Text(title, style: const TextStyle(fontSize: 18)),
         ],
