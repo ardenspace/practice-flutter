@@ -39,12 +39,19 @@ class Episode extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                episode.title,
-                style: const TextStyle(
-                  color: Colors.green,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+              Expanded(
+                // 단어 때문에 헷갈릴 수 있지만 flutter에서의 row는 무한히 공간을 준다. 그래서 줄이고 싶은 영역을 Expanded나 Flexible 로 감싸야 한다. expanded의 뜻은 가능한 영역을 최대한 확장해서 줘라 ... 라는 뜻인데 그러니까 지금 버튼이 있잖아? 그 버튼 안에서 줄 수 있는 최대치를 얘한테 할당하라는 소리임
+                // [ |---최 대 한---| 아이콘 ] 이런 식인 거임
+                child: Text(
+                  episode.title,
+                  style: const TextStyle(
+                    color: Colors.green,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  maxLines: 1,
+                  softWrap: false,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               const Icon(Icons.chevron_right_rounded, color: Colors.green),
