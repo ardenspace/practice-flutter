@@ -3,6 +3,7 @@ import 'package:toonflix/models/webtoon_detail_model.dart';
 import 'package:toonflix/models/webtoon_episode_model.dart';
 import 'package:toonflix/sevices/api_service.dart';
 import 'package:toonflix/widgets/appbar.dart';
+import 'package:toonflix/widgets/episode_widget.dart';
 import 'package:toonflix/widgets/image_card.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -74,46 +75,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     return Column(
                       children: [
                         for (var episode in snapshot.data!)
-                          Container(
-                            margin: const EdgeInsets.only(bottom: 15),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border.all(color: Colors.green),
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withValues(alpha: 0.5),
-                                  blurRadius: 5.0,
-                                  spreadRadius: 0.0,
-                                  offset: const Offset(0, 5),
-                                ),
-                              ],
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 10,
-                                horizontal: 20,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    episode.title,
-                                    style: const TextStyle(
-                                      color: Colors.green,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const Icon(
-                                    Icons.chevron_right_rounded,
-                                    color: Colors.green,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
+                          Episode(episode: episode, webtoonId: widget.id),
                       ],
                     );
                   }
