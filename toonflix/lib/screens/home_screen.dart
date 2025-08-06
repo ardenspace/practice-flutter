@@ -39,7 +39,11 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const AppTopBar(barTitle: "오늘의 웹툰"),
+      appBar: AppTopBar(
+        isShowHeart: false,
+        barTitle: "오늘의 웹툰",
+        onHeartTap: () {},
+      ),
       body: FutureBuilder(
         // 이것 덕분에 1번을 쓰지 않아도 되고 statelessWidget을 사용할 수 있는 것임
         future: webtoons,
